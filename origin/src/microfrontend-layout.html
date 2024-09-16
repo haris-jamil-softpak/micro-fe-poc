@@ -1,0 +1,25 @@
+
+<single-spa-router>
+  <!--
+
+    This is the single-spa Layout Definition for your microfrontends.
+    See https://single-spa.js.org/docs/layout-definition/ for more information.
+
+  -->
+
+  <nav>
+    <application name="@ubs/react-navigation"></application>
+  </nav>
+
+  <main>
+    <route default>
+      <application name="@ubs/react-micro-fe"></application>
+    </route>
+    <route  path="react">
+      <application name="@ubs/react-micro-fe"></application>
+    </route>
+    <route path="angular">
+      <application name="angular-micro-fe"></application>
+    </route>
+  </main>
+</single-spa-router>
