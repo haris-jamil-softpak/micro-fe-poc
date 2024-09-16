@@ -2,9 +2,9 @@ import {Link} from 'react-router-dom';
 
 export default function Root(props) {
   return (
-    <nav>
-      <Link to="/angular">Angular App</Link>
-      <Link to="/react">React App</Link>
+    <nav style={{fontSize: "25px"}} >
+      <a href="angular">Go to Angular app</a>
+      <a href="react" style={{marginLeft: '20px'}}>Go to React app</a>
     </nav>
   );
 }

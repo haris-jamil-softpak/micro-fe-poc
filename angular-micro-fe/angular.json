@@ -8,6 +8,9 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -20,9 +23,7 @@
             "outputPath": "dist/angular-micro-fe",
             "index": "src/index.html",
             "main": "src/main.single-spa.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -38,7 +39,7 @@
               "libraryName": "angular-micro-fe",
               "libraryTarget": "umd"
             },
-            "deployUrl": "http://localhost:9001/"
+            "deployUrl": "http://localhost:9003/"
           },
           "configurations": {
             "production": {
@@ -52,6 +53,12 @@
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "none"
@@ -89,11 +96,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
@@ -107,5 +113,6 @@
         }
       }
     }
-  }
+  },
+  "defaultProject": "angular-micro-fe"
 }
